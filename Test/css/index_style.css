@@ -1,0 +1,642 @@
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #58637B;
+    /* placeholder字体大小  */
+    font-size: 14px;
+    /* placeholder位置  */
+    text-align: left;
+}
+
+.whole_main {
+    width: 1000px;
+    height: 900px;
+    margin: 20px auto;
+}
+
+.content {
+    margin-left: 210px;
+}
+
+#div1 {
+    display: block;
+    color: white
+}
+
+.myInfor_head {
+    width: auto;
+    height: 72px;
+    padding: 20px;
+}
+
+.content_div {
+    margin-left: 10px;
+    line-height: 40px;
+    color: #58637B
+}
+
+#avator {
+    float: left;
+}
+
+.content_left {
+    float: left;
+}
+
+.content_left ul li button {
+    margin-left: 8px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-color: #00000000;
+    padding: 5px;
+}
+
+.content_right {
+    float: right;
+}
+
+#admin_name {
+    font-size: large;
+    font-weight: bold;
+    text-align: left
+}
+
+#admin_encharge {
+    font-size: 14px;
+    text-align: left
+}
+
+#admin_encharge i {
+    font-style: normal;
+}
+
+#bank {
+    background: url(../Images/22.png);
+
+}
+
+#alipply {
+    background: url(../Images/21.png);
+}
+
+.content_right ul {
+    text-align: left;
+    font-size: 12px
+}
+
+.content_right ul li i {
+    font-style: normal;
+}
+
+.content_right ul li button {
+    padding: 0 15px;
+    margin-right: 10px
+}
+
+#admin_money {
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px
+}
+
+.div_block {
+    display: none;
+    color: white
+}
+
+.myInfor_body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    height: 300px;
+    padding: 0;
+}
+
+.myInfor_head_title {
+    font-size: 17px;
+    font-style: normal;
+}
+
+.myInfor_head_contitle {
+    text-align: left;
+    font-size: 14px;
+    height: 30px;
+}
+
+.myInfor_foot {
+    width: auto;
+    height: 100px;
+}
+
+.myInfor_head_tab {
+    padding: 10px;
+}
+
+.tip {
+    background-position: left;
+    font-size: small;
+    padding: 0 15px;
+    margin-right: 10px;
+    width: 75px;
+    border: none;
+    text-align: right;
+}
+
+.tip_ok {
+    background: url(../Images/25.png) no-repeat;
+    color: green;
+    visibility: visible;
+}
+
+.tip_null {
+    background: url(../Images/27.png) no-repeat;
+    color: red;
+    margin-left: -80px;
+    visibility: visible;
+}
+
+.go_right {
+    text-align: center;
+}
+
+#Nickbox {
+    width: 300px;
+    height: 240px;
+}
+
+#Namebox {
+    width: 300px;
+    height: 240px;
+}
+
+#Telbox {
+    width: 300px;
+    height: 400px;
+}
+
+#Cardbox {
+    height: 360px;
+    width: 300px;
+}
+
+#ZFBbox {
+    width: 300px;
+    height: 240px;
+}
+
+#Pwdbox {
+    width: 300px;
+    height: 430px;
+}
+
+#TradePwdbox {
+    width: 300px;
+    height: 370px;
+}
+
+#ReChargebox {
+    width: 300px;
+    height: 240px;
+}
+
+#Withdarwbox {
+    width: 300px;
+    height: 420px;
+}
+
+#old_tel {
+    margin-bottom: 20px;
+}
+
+.allInput {
+    color: #aab2bd;
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    background: #00000000;
+    line-height: 35px;
+    border-bottom: 1px solid #293757;
+}
+
+.codeBtn {
+    color: #ABBCE0;
+    font-size: 14px;
+    border: none;
+    background: #00000000;
+    z-index: 30;
+    margin-left: 190px;
+    margin-top: -60px;
+}
+
+
+
+.showpwd {
+    margin-top: -50px;
+    z-index: 30;
+    margin-left: 230px;
+}
+
+.dis {
+    display: none;
+}
+
+.smallFont {
+    font-size: 12px;
+    color: #58637B;
+}
+
+.padding_control {
+    padding: 0;
+}
+
+.textBlue {
+    color: #0055FF;
+}
+
+/*------div2-----*/
+.month_card {
+    width: auto;
+    height: 170px;
+    padding: 30px;
+    text-align: center;
+}
+
+.vip_card {
+    width: auto;
+    text-align: center;
+    padding: 30px 90px;
+}
+
+.vip_card_content {
+    width: 180px;
+    height: 80px;
+    background: #0E1627;
+    border: 1px solid #00000000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.vip_card_content ul li {
+    font-style: normal;
+    color: #687693;
+    line-height: 45px;
+}
+
+.vip_card_content ul li i {
+    font-style: normal;
+    color: #ABBCE0;
+}
+
+.card_sep {
+    text-align: left;
+    margin-top: -10px;
+}
+
+.card_sep span {
+    margin: 10px 15px;
+
+}
+
+#vip_month {
+    float: left;
+}
+
+#vip_year {
+    float: right;
+}
+
+/*------------div3---------*/
+
+.earing {
+    width: auto;
+    text-align: left;
+    padding: 30px 90px;
+}
+
+.earing_foot {
+    width: auto;
+    text-align: left;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.earing ul li {
+    font-style: normal;
+    color: #687693;
+    text-align: left;
+    display: inline-block;
+}
+
+.earing ul li p {
+    margin-left: -55px;
+    margin-bottom: -24px;
+    font-weight: bold
+
+}
+
+.earing ul li i {
+    font-weight: bold;
+    font-style: normal;
+}
+
+.dk-setCion ul li {
+    display: inline-block;
+    list-style: none
+}
+
+.datebg {
+    background-color: #0E172A;
+    background: url(../Images/17.png) no-repeat;
+    background-position: 120px;
+    border-color: #58637B;
+    color: #687693;
+}
+
+/*-----------div4---------------*/
+.earingList {
+    width: auto;
+    text-align: left;
+}
+
+.earingList i, p {
+    font-style: normal;
+    width: auto;
+    text-align: left;
+}
+
+.earingList_head {
+    width: auto;
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.font_large {
+    color: #fff;
+    font-size: 30px;
+}
+
+.font_normal {
+    color: #687693;
+}
+
+.earingList_head div {
+    width: 140px;
+    height: 80px;
+    padding: 15px;
+    text-align: left;
+    display: inline-block;
+}
+
+.earingList_foot {
+    width: auto;
+    text-align: left;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/*-----------div6---------------*/
+.statisticsList {
+    width: auto;
+    text-align: left;
+
+}
+
+.statistics {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.statistics div {
+    width: 170px;
+    height: 70px;
+    text-align: left;
+    background: #0E1728;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #687693;
+    border-radius: 5px;
+    margin: 15px;
+}
+
+.statistics div i {
+    font-size: 25px;
+    font-style: normal;
+    color: white;
+}
+
+.statistics div span {
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 5px;
+    text-align: right;
+}
+
+.statistics div img {
+    margin-left: 30px;
+}
+
+.statisticsLists_foot {
+    width: 744px;
+    margin-top: 10px;
+    margin-left: 210px;
+    height: 127px;
+    background: url(../Images/13.PNG) no-repeat;
+    text-align: right;
+}
+.floatbtn{
+    margin-top: 35px;
+    margin-right: 30px;
+}
+
+.dialog_share{
+    height: 711px;
+    width: 400px;
+    background: url(../Images/haibao.png) no-repeat;
+}
+
+.head_nav{
+    font-size: small;
+}
+
+.outBtn{
+    color: #ABBCE0;
+    border: none;
+    background: #00000000;
+    z-index: 30;position: relative;font-size: 12px;right: 5px;left: 140px;
+}
+
+.outBtn:hover{
+    border: none;
+    background: #00000000;
+}
+
+.head_nav_div {
+    font-size: small;text-align: left;line-height: 28px;margin-left: -15px;width: 200px;background: #1C2843;
+    padding: 10px;
+}
+
+.head_nav_div i{
+    font-style: normal;
+    margin: 5px;
+    color: #687693;
+}
+
+.nav_right{
+    text-align: right;
+    padding-right: 150px;
+}
+/*------------tabout dialog -----------------------------------*/
+
+.animated {
+    -webkit-animation-duration: 1.4s;
+    animation-duration: 1.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px);
+        transform: translateY(-2000px);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px);
+        -ms-transform: translateY(-2000px);
+        transform: translateY(-2000px);
+    }
+
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(30px);
+        -ms-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.bounceInDown {
+    -webkit-animation-name: bounceInDown;
+    animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceOutUp {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    20% {
+        opacity: 1;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px);
+        transform: translateY(-2000px);
+    }
+}
+
+@keyframes bounceOutUp {
+    0% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    20% {
+        opacity: 1;
+        -webkit-transform: translateY(20px);
+        -ms-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px);
+        -ms-transform: translateY(-2000px);
+        transform: translateY(-2000px);
+    }
+}
+
+.bounceOutUp {
+    -webkit-animation-name: bounceOutUp;
+    animation-name: bounceOutUp;
+}
+
+#dialogBg {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: .6;
+    filter: alpha(opacity=60);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: none;
+}
+
+.mydialog {
+    text-align: left;
+    display: none;
+    top: 35%;
+    left: 50%;
+    margin: -120px 0 0 -150px;
+    z-index: 10000;
+    position: fixed;
+}
+
+.mydialog ul li {
+    font-style: normal;
+    line-height: 25px;
+    font-size: 14px;
+    color: #ABBCE0;
+    padding: 12px;
+}
+
+.mydialog ul li i {
+    font-style: normal;
+    font-size: 14px;
+    color: #ABBCE0;
+}
+
+/*---------end---------------*/
+

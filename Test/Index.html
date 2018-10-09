@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bigbao测试界面</title>
+    <link href="css/index_style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/index_style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-labelauty.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery-labelauty.css">
+    <style>
+
+    </style>
+    <script type="text/javascript">
+        var w, h, className;
+
+        function getSrceenWH() {
+            w = $(window).width();
+            h = $(window).height();
+            $('#dialogBg').width(w).height(h);
+        }
+
+        function getDia(btn, box) {
+            $(btn).click(function () {
+                className = $(box).attr('class');
+                $('#dialogBg').fadeIn(300);
+                $(box).removeAttr('class').addClass('animated ' + className + ' ' + 'bounceInDown').fadeIn();
+            });
+        }
+
+        function closeDia(box) {
+            $('.claseDialogBtn').click(function () {
+                $(box).removeClass('bounceInDown');
+                $('#dialogBg').fadeOut(300, function () {
+                    $(box).addClass('bounceOutUp').fadeOut();
+                    $(box).removeClass('bounceOutUp');
+                });
+
+            });
+        }
+
+        window.onresize = function () {
+            getSrceenWH();
+        }
+        $(window).resize();
+
+        $(function () {
+            getSrceenWH();
+            //显示弹框
+            getDia('#nick_change', '#Nickbox');
+            getDia('#name_change', '#Namebox');
+            getDia('#tel_change', '#Telbox');
+            getDia('#cardId_change', '#Cardbox');
+            getDia('#alipplyId_change', '#ZFBbox');
+            getDia('#logpwd_change', '#Pwdbox');
+            getDia('#tradepwd_change', '#TradePwdbox');
+            getDia('#recharge_btn', '#ReChargebox');
+            getDia('#withdraw_btn', '#Withdarwbox');
+            //关闭弹窗
+            closeDia('#Nickbox');
+            closeDia('#Namebox');
+            closeDia('#Telbox');
+            closeDia('#Cardbox');
+            closeDia('#ZFBbox');
+            closeDia('#Pwdbox');
+            closeDia('#TradePwdbox');
+            closeDia('#ReChargebox');
+            closeDia('#Withdarwbox');
+        });
+
+
+        function send_change_tel(id) {//发送改变电话号码的验证码
+            //
+        };
+
+        function hideOrshow(inputId, hideid, showid) {
+            $(hideid).click(function () {
+                if ($(inputId).attr("type") == "password") {
+                    $(inputId).attr('type', 'text');
+                    $(showid).show();
+                    $(hideid).hide();
+                }
+
+            });
+
+            $(showid).click(function () {
+                if ($(inputId).attr("type") == "text") {
+                    $(inputId).attr('type', 'password');
+                    $(showid).hide();
+                    $(hideid).show();
+                }
+            });
+
+        };
+
+        //密码控制可见
+        $(function () {
+            hideOrshow('#new_logpwd', '#eyesHide', '#eyesShow');
+            hideOrshow('#new_tradepwd', '#eyesHide1', '#eyesShow1');
+
+        });
+    </script>
+</head>
+<body style="background: #000819;font-family: 'Microsoft YaHei UI Light';height: 900px">
+<div id="dialogBg"></div>
+<div id="Namebox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">修改姓名 <i class="claseDialogBtn layui-icon"
+                                                                                   style="float: right">&#x1006</i></li>
+        <li> 原姓名 : <i id="old_name">许大宝</i></li>
+        <li><input id="new_name" type="text" class="allInput" placeholder="新姓名"/>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="Nickbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">修改昵称 <i class="claseDialogBtn layui-icon"
+                                                                                   style="float: right">&#x1006</i></li>
+        <li> 原昵称 : <i id="old_nick">MR Chen</i></li>
+        <li><input id="new_nick" type="text" class="allInput" placeholder="新昵称"/>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="Telbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">修改手机号码 <i class="claseDialogBtn layui-icon"
+                                                                                     style="float: right">&#x1006</i>
+        </li>
+        <li> 原手机号码 : <i id="old_tel">151*****957</i></li>
+        <li><input id="old_tel_code" type="text" class="allInput" placeholder="输入手机验证码"/>
+            <button id="send_old_tel_code" class="layui-btn layui-btn-primary layui-btn-xs codeBtn"
+                    onclick="send_change_tel(1)">发送验证码
+            </button>
+        </li>
+        <li style="padding: 5px;"></li>
+        <li><input id="new_tel" type="text" class="allInput" placeholder="输入新手机号码"/>
+        </li>
+
+        <li><input id="new_tel_code" type="text" class="allInput" placeholder="新手机验证码"/>
+            <button id="send_new_tel_code" class="layui-btn layui-btn-primary layui-btn-xs codeBtn "
+                    onclick="send_change_tel(2)">发送验证码
+            </button>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal" style="margin-top: -25px">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="Cardbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">绑定银行卡号码 <i class="claseDialogBtn layui-icon"
+                                                                                      style="float: right">&#x1006</i>
+        </li>
+        <!--<li> 原银行卡号码 : <i id="old_card">400*********************957</i></li>-->
+        <li><i id="card_notice">请绑定持卡人本人的银行卡 </i><i id="old_card"> </i></li>
+        <li><input id="card_host" type="text" class="allInput" placeholder="持卡人姓名"/>
+
+        </li>
+        <li><i>银行名称:</i>
+            <div class="layui-input-inline">
+                <select name="bankCard_name" lay-verify="required" lay-search=""
+                        style="background: #1E273A;color: #ABBCE0">
+                    <option value="">请输入</option>
+                    <option value="1">中国银行</option>
+                    <option value="2">中国工商银行</option>
+                    <option value="3">中国建设银行</option>
+                    <option value="4">中国农业银行</option>
+                    <option value="5">交通银行</option>
+                    <option value="6">招商银行</option>
+                    <option value="7">中国邮政储蓄银行</option>
+                    <option value="8">中国光大银行</option>
+                    <option value="9">中国民生银行</option>
+                    <option value="10">平安银行</option>
+                    <option value="11">浦发银行</option>
+                    <option value="12">中信银行</option>
+                    <option value="13">兴业银行</option>
+                    <option value="14">华夏银行</option>
+                    <option value="15">广发银行</option>
+                    <option value="16">上海银行</option>
+                    <option value="17">北京农商银行</option>
+                    <option value="18">杭州银行</option>
+                    <option value="19">青岛银行</option>
+                    <option value="20">齐鲁银行</option>
+                    <option value="21">郑州银行</option>
+                    <option value="22">北京银行</option>
+                    <option value="23">汉口银行</option>
+                    <option value="24">江苏银行</option>
+                    <option value="25">上海农商银行</option>
+                    <option value="26">成都银行</option>
+                    <option value="27">东莞银行</option>
+                    <option value="28">包商银行</option>
+                    <option value="29">徽商银行</option>
+                    <option value="30">南京银行</option>
+                    <option value="31">广州银行</option>
+                    <option value="32">渤海银行</option>
+                    <option value="33">哈尔滨银行</option>
+                    <option value="34">长沙银行</option>
+                    <option value="35">天津银行</option>
+                    <option value="36">宁波银行</option>
+                    <option value="37">重庆银行</option>
+                    <option value="38">吉林滨银行</option>
+                    <option value="39">河北银行</option>
+                    <option value="40">龙江银行</option>
+                    <option value="41">浙商银行</option>
+                    <option value="42">大连银行</option>
+                </select>
+            </div>
+        </li>
+        <li><input id="new_card" type="text" class="allInput" placeholder="银行卡号"/>
+        </li>
+        <li></li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal" style="margin-top: -25px">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="ZFBbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">绑定支付宝 <i class="claseDialogBtn layui-icon"
+                                                                                    style="float: right">&#x1006</i>
+        </li>
+        <li><i id="old_alipplyId">请输入本人支付宝账号</i></li>
+        <li><input id="new_alipplyId" type="text" class="allInput" placeholder="支付宝账号"/>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="Pwdbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">修改登录密码 <i class="claseDialogBtn layui-icon"
+                                                                                     style="float: right">&#x1006</i>
+        </li>
+        <li><input id="old_logpwd" type="password" class="allInput" placeholder="原登录密码"/>
+        </li>
+        <li><input id="new_logpwd" type="password" class="allInput" placeholder="新密码" required="required"
+                   maxlength="16"
+                   title="密码必须包含三种不同类型(数字、英文字母、特殊符号)"
+                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$"/> <img
+                src="Images/pwd_invisible.png" alt="" id="eyesHide" class="showpwd">
+            <img src="Images/pwd_visible.png" alt="" id="eyesShow" class="showpwd dis"></li>
+        <li style="padding: 0 15px;margin-top: -40px"><i
+                style="padding: 0;line-height: 12px;color: #58637B;font-size: 12px;text-align: left;"
+        >请输入8-16个字符,密码必须包含三种不同类型(数字、英文字母、特殊符号)</i>
+        </li>
+        <li><input id="new_relogpwd" type="password" class="allInput" placeholder="确认新密码" required="required"
+                   maxlength="16"
+                   title="密码必须包含三种不同类型(数字、英文字母、特殊符号)"
+                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$"/>
+        </li>
+        <li><input id="PwdBox_getcode" type="text" class="allInput" placeholder="验证码"/>
+            <button class="layui-btn layui-btn-primary layui-btn-xs codeBtn"
+                    onclick="send_change_tel(3)">发送验证码
+            </button>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="TradePwdbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">设置交易密码 <i class="claseDialogBtn layui-icon"
+                                                                                     style="float: right">&#x1006</i>
+        </li>
+
+        <li><input id="new_tradepwd" type="password" class="allInput" placeholder="交易密码"/> <img
+                src="Images/pwd_invisible.png" alt="" id="eyesHide1" class="showpwd">
+            <img src="Images/pwd_visible.png" alt="" id="eyesShow1" class="showpwd dis"></li>
+        <li style="padding: 0 15px;margin-top: -40px"><i
+                style="padding: 0;line-height: 12px;color: #58637B;font-size: 12px;text-align: left;"
+        >请输入8-16个字符,密码必须包含三种不同类型(数字、英文字母、特殊符号)</i>
+        </li>
+        <li><input id="new_reapplypwd" type="password" class="allInput" placeholder="确认交易密码" required="required"
+                   maxlength="16"
+                   title="密码必须包含三种不同类型(数字、英文字母、特殊符号)"
+                   pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$"/>
+        </li>
+        <li><input id="TradePwdbox_getcode" type="text" class="allInput" placeholder="验证码"/>
+            <button class="layui-btn layui-btn-primary layui-btn-xs codeBtn"
+                    onclick="send_change_tel(3)">发送验证码
+            </button>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="ReChargebox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">充值 <i class="claseDialogBtn layui-icon"
+                                                                                 style="float: right">&#x1006</i></li>
+        <li><p class="smallFont"> 充值金额</p></li>
+        <li><input id="recharge_count" type="text" class="allInput" placeholder="¥"/>
+        </li>
+        <li>
+            <button class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<div id="Withdarwbox" class="mydialog animated layui-bg-cyan">
+    <ul>
+        <li style="font-size: 18px;background: #0E172A;line-height: 40px;">提现 <i class="claseDialogBtn layui-icon"
+                                                                                 style="float: right">&#x1006</i></li>
+        <li><i id="admin_bankNm">XXX银行</i>
+            <p class="smallFont padding_control">尾号7894储蓄卡</p></li>
+        <li><p id="admin_canuse_money" class="smallFont padding_control padding_control">提现金额(可用余额：6214元)</p></li>
+        <li><input id="withdraw_count" type="text" class="allInput" placeholder="¥"/>
+            <button class="layui-btn layui-btn-primary layui-btn-xs codeBtn textBlue"
+                    onclick="">全部提现
+            </button>
+        </li>
+        <li><input id="Withdraw_getcode" type="text" class="allInput" placeholder="手机验证码"/>
+            <button class="layui-btn layui-btn-primary layui-btn-xs codeBtn"
+                    onclick="send_change_tel(4)">发送验证码
+            </button>
+        </li>
+        <li>
+            <button id="withdraw_confirm" class="layui-btn layui-btn-fluid layui-btn-normal">确认</button>
+        </li>
+    </ul>
+</div>
+
+<ul class="layui-nav layui-bg-cyan nav_right">
+    <li class="layui-nav-item">
+        <a href="">首页 </a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="">个人中心 </a>
+    </li>
+    <li class="layui-nav-item">
+        <a><img src="Images/10.png" class="nav_admin_nm layui-nav-img" >陈一鸣</a>
+        <dl class="layui-nav-child head_nav">
+            <dd><div class="head_nav_div"> <img src="Images/10.png" style="float: left;margin:10px 5px"/><i class="nav_admin_nm">陈一鸣</i><br/> <i  class="nav_admin_phone">15117948741</i>
+                <br/>
+                <button class="layui-btn layui-btn-primary layui-btn-xs outBtn">退出登录</button>
+            </div></dd>
+
+        </dl>
+    </li>
+</ul>
+<div class="whole_main">
+    <div style="float: left;">
+        <ul class="layui-nav layui-nav-tree layui-bg-cyan" lay-filter="demo">
+            <li class="layui-nav-item layui-this"><a href="javascript:funcShow(1)">我的资料</a></li>
+            <li class="layui-nav-item"><a href="javascript:funcShow(2)">购买套餐</a></li>
+            <li class="layui-nav-item"><a href="javascript:funcShow(3)">星火收益</a></li>
+            <li class="layui-nav-item layui-none">
+                <a href="javascript:funcShow(4);">财务明细</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:funcShow(4);">收益记录</a></dd>
+                    <dd><a href="javascript:funcShow(5);">提现记录</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="javascript:funcShow(6)">业务统计</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="div1">
+            <!--我的资料-->
+            <div class="myInfor_head layui-bg-cyan">
+                <div id="avator"><img src="Images/9.png" width="72" height="72"></div>
+                <div class="content_left content_div">
+                    <ul>
+                        <li id="admin_name">MR Chen</li>
+                        <li id="admin_encharge"><i id="admim_phone">15116330126</i> &nbsp;&nbsp;
+                            <button id="bank"/>
+                            <button id="alipply"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content_right content_div">
+                    <ul>
+                        <li> 我的资产 <i id="admin_money">10000</i><i style="font-style: normal">元</i></li>
+                        <li>
+                            <button id="recharge_btn" class="layui-btn layui-btn-normal layui-btn-sm ">充值</button>
+                            <button id="withdraw_btn" class="layui-btn layui-btn-warm  layui-btn-sm">提现</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="myInfor_body layui-bg-cyan">
+                <table class="layui-table" lay-even="" lay-skin="nob">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="myInfor_head_contitle "><img src="Images/11.png">&nbsp;&nbsp;<i
+                                class="myInfor_head_title">个人信息</i></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">昵称</td>
+                        <td id="admin_inf_nick">MR Chen</td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_nick_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_nick_null"> 未设置</button>
+                            <button id="nick_change" class="layui-btn layui-btn-primary layui-btn-sm">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">姓名</td>
+                        <td id="admin_inf_name">许大宝</td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_name_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_name_null"> 未设置</button>
+                            <button id="name_change" class="layui-btn layui-btn-primary layui-btn-sm">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">手机号码</td>
+                        <td id="admin_inf_tel">15116333123</td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_tel_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_tel_null"> 未设置</button>
+                            <button id="tel_change" class="layui-btn layui-btn-primary layui-btn-sm">修改</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">银行卡号</td>
+                        <td id="admin_inf_cardId">1478523694412144777</td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_card_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_card_null"> 未设置</button>
+                            <button id="cardId_change" class="layui-btn layui-btn-primary layui-btn-sm">前往设置</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">支付宝</td>
+                        <td id="admin_inf_alipplyId">151111111147</td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_alipply_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tipalipply_null"> 未设置</button>
+                            <button id="alipplyId_change" class="layui-btn layui-btn-primary layui-btn-sm">前往设置</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="myInfor_foot layui-bg-cyan">
+                <table class="layui-table" lay-even="" lay-skin="nob">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th class="myInfor_head_contitle "><img src="Images/24.png">&nbsp;&nbsp;<i
+                                class="myInfor_head_title">安全中心</i></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">登录密码</td>
+                        <td></td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_logpwd_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_logpwd_null"> 未设置</button>
+                            <button id="logpwd_change" class="layui-btn layui-btn-primary layui-btn-sm">前往设置</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="myInfor_head_contitle">支付密码</td>
+                        <td></td>
+                        <td></td>
+                        <td class="go_right">
+                            <button id="tip_tradepwd_ok" class="tip tip_ok"> 已设置</button>
+                            <button class="tip tip_null" id="tip_tradepwd_null"> 未设置</button>
+                            <button id="tradepwd_change" class="layui-btn layui-btn-primary layui-btn-sm">前往设置</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="div2" class="div_block">
+            <div class="month_card layui-bg-cyan">
+                <p class="smallFont"><strong>月卡/年卡会员更方便</strong></p>
+                <div class="vip_card">
+                    <div id="vip_month" class="vip_card_content">
+                        <ul>
+                            <li class="card_sep"><img src="Images/18.png"/> <span><strong>VIP月卡</strong></span></li>
+                            <li><strong><i>支付 &nbsp;&nbsp;</i><i id="vip_month_money">100</i>
+                                <i>&nbsp;&nbsp;CNY</i></strong></li>
+                        </ul>
+                    </div>
+                    <div id="vip_year" class="vip_card_content">
+                        <ul>
+                            <li class="card_sep"><img src="Images/20.png"/> <span><strong>VIP年卡</strong></span></li>
+                            <li><strong><i>支付 &nbsp;&nbsp;</i><i id="vip_year_money">360</i>
+                                <i>&nbsp;&nbsp;CNY</i></strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div3" class="div_block">
+            <div class="earing layui-bg-cyan">
+                <ul>
+                    <li>
+                        <p>交易区&nbsp;：</p>
+                        <ul class="dk-setCion">
+                            <li><input type="radio" name="earing_coin" id="earing_coin_All"
+                                       data-labelauty="全部" checked>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_USDT"
+                                       data-labelauty="USDT"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_ETH"
+                                       data-labelauty="ETH"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_BTC"
+                                       data-labelauty="BTC"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_ZB"
+                                       data-labelauty="ZB"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_BNB"
+                                       data-labelauty="BNB"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_HB"
+                                       data-labelauty="HB"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_HT"
+                                       data-labelauty="HT"></li>
+                            <li><input type="radio" name="earing_coin" id="earing_coin_OKB"
+                                       data-labelauty="OKB"></li>
+                        </ul>
+                    </li>
+                    <br/><br/>
+                    <li>
+                        <p>收　益&nbsp;：</p>
+                        <ul class="dk-setCamein">
+                            <li><input type="radio" name="earing_camein" id="earing_camein_today"
+                                       data-labelauty="今日">
+                            <li><input type="radio" name="earing_camein" id="earing_camein_yesterday"
+                                       data-labelauty="昨日"></li>
+                            <li><input type="radio" name="earing_camein" id="earing_camein_thismonth"
+                                       data-labelauty="本月"></li>
+                            <li><input type="radio" name="earing_camein" id="earing_camein_lastmonth"
+                                       data-labelauty="上月"></li>
+                        </ul>
+                    </li>
+                    <br/><br/>
+                    <li style="margin-left: -55px;font-weight: bold">
+                        <i>时　间&nbsp;：</i>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline layui-bg-cyan">
+                                <input type="text" name="date" id="date" lay-verify="date" autocomplete="off"
+                                       class="layui-input layui-bg-cyan datebg">
+                            </div>
+                        </div>
+                        <i>　至　</i>
+                        <div class="layui-inline">
+                            <div class="layui-input-inline layui-bg-cyan">
+                                <input type="text" name="date2" id="date2" lay-verify="date" autocomplete="off"
+                                       class="layui-input layui-bg-cyan datebg">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="earing_foot layui-bg-cyan">
+                <table class="layui-hide layui-bg-cyan" lay-skin="nob" id="earing_tab">
+                </table>
+            </div>
+        </div>
+        <div id="div4" class="div_block">
+            <div class="earingList"><!-收益记录->
+                <div class="earingList_head layui-bg-cyan">
+                    <div>
+                        <p class="font_normal"><i class="font_large">60000</i>元</p>
+                        <p class="font_normal" id="earingList_today">今日收益</p>
+                    </div>
+                    <div>
+                        <p class="font_normal"><i class="font_large">520</i>元</p>
+                        <p class="font_normal" id="earingList_yesterday">昨日收益</p>
+                    </div>
+                    <div>
+                        <p class="font_normal"><i class="font_large">5200</i>元</p>
+                        <p class="font_normal" id="earingList_thismoth">本月总收益</p>
+                    </div>
+                    <div>
+                        <p class="font_normal"><i class="font_large">520000</i>元</p>
+                        <p class="font_normal" id="earingList_all">总收益</p>
+                    </div>
+                </div>
+                <div class="earingList_foot layui-bg-cyan">
+                    <table class="layui-hide layui-bg-cyan" lay-skin="nob" id="earingList_tab">
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="div5" class="div_block">
+            <div class="earingList"><!-提现记录->
+                <div class="earingList_head layui-bg-cyan">
+                    <div>
+                        <p class="font_normal"><i class="font_large">60000</i>元</p>
+                        <p class="font_normal" id="earingList_today">总提现</p>
+                    </div>
+                    <div>
+                        <p class="font_normal"><i class="font_large">520</i>元</p>
+                        <p class="font_normal" id="earingList_yesterday">余额</p>
+                    </div>
+                </div>
+                <div class="earingList_foot layui-bg-cyan">
+                    <table class="layui-hide layui-bg-cyan" lay-skin="nob" id="withdrawDepositList_tab">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="div6" class="div_block ">
+        <div class="statisticsList">
+            <div class="statistics layui-bg-cyan"><!-业务统计->
+                <div> <i>2000000</i> 元<br/><br/>本月总业绩</div>
+                <div> <i>2000000</i> 元<br/><br/>上月总业绩</div>
+                <div> <i>2000000</i> 元<br/><br/>总业绩</div>
+                <br/>
+                <div> <i>2000000</i> 元<br/><br/>一代总业绩 <img src="Images/15.png"> <span>12000</span></div>
+                <div> <i>2000000</i> 元<br/><br/>二代总业绩<img src="Images/15.png"><span>16000</span></div>
+                <div> <i>2000000</i> 元<br/><br/>三代总业绩<img src="Images/15.png"><span>16000</span></div>
+            </div>
+            <div class="statisticsLists_foot">
+                <button data-method="notice" id="haibao" class="layui-btn layui-btn-normal floatbtn layui-btn-radius">生成二维码</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+<script src="layui/layui.js" charset="utf-8"></script>
+<script src="layui/layui.all.js" charset="utf-8"></script>
+<script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
+
+    function funcShow(id) {
+        for (var i = 1; i < 7; i++) {
+            var temp;
+            if (i == id) {
+                temp = "block";
+            } else {
+                temp = "none";
+            }
+            document.getElementById("div" + i).style.display = temp;
+        }
+    }
+
+    layui.use(['laydate'], function () {
+        var laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+        laydate.render({
+            elem: '#date2'
+        });
+        laydate.render({
+            elem: '#date2'
+        });
+    })
+</script>
+<script>
+    $(function () {
+        $(".dk-setCion input").labelauty({icon: false});
+        $(".dk-setCamein input").labelauty({icon: false});
+
+    });
+    //获取选中input的值
+    var coin = $('input[name="earing_coin"]:checked').val();
+    var camein = $('input[name="earing_camein"]:checked').val();
+</script>
+
+<script>
+    //这里是 earingList_tab中是数据
+    layui.use('table', function () {
+        var table = layui.table;
+        table.render({
+            elem: '#earing_tab'
+            // , url: 'https://www.layui.com/demo/table/user/?page=1&limit=30'
+            // , toolbar: true
+            // , title: ''
+            // , totalRow: true
+            , cols: [[
+                {field: 'id', title: 'ID', width: 80, fixed: 'left', unresize: true}
+                , {field: 'username', title: '用户名', width: 120}
+                , {field: 'email', title: '邮箱', width: 150}
+                , {field: 'experience', title: '积分', width: 80, totalRow: true}
+                , {field: 'sex', title: '性别', width: 80}
+                , {field: 'logins', title: '登入次数', width: 100, totalRow: true}
+                , {field: 'sign', title: '签名'}
+                , {field: 'city', title: '城市', width: 100}
+                , {field: 'ip', title: 'IP', width: 120}
+                , {field: 'joinTime', title: '加入时间', width: 120}
+            ]]
+            , data: [{
+                "id": "10001"
+                , "username": "杜甫"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "116"
+                , "ip": "192.168.0.8"
+                , "logins": "108"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10002"
+                , "username": "李白"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "12"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+                , "LAY_CHECKED": true
+            }, {
+                "id": "10003"
+                , "username": "王勃"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "65"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10004"
+                , "username": "贤心"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "666"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10005"
+                , "username": "贤心"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "86"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10006"
+                , "username": "贤心"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "12"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10007"
+                , "username": "贤心"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "16"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }, {
+                "id": "10008"
+                , "username": "贤心"
+                , "email": "xianxin@layui.com"
+                , "sex": "男"
+                , "city": "浙江杭州"
+                , "sign": "人生恰似一场修行"
+                , "experience": "106"
+                , "ip": "192.168.0.8"
+                , "logins": "106"
+                , "joinTime": "2016-10-14"
+            }]
+            , even: true
+            , page: true //是否显示分页
+            , limits: [5, 8, 10]
+            , limit: 5 //每页默认显示的数量
+        });
+        //     , page: true
+        //     , response: {
+        //         statusCode: 200 //重新规定成功的状态码为 200，table 组件默认为 0
+        //     }
+        //     , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据
+        //         return {
+        //             "code": res.status, //解析接口状态
+        //             "msg": res.message, //解析提示文本
+        //             "count": res.total, //解析数据长度
+        //             "data": res.rows.item //解析数据列表
+        //         };
+        //     }
+        // });
+
+        table.render({
+            elem: '#earingList_tab'
+            , cols: [[ //标题栏
+                {field: 'time', title: '时间', width: 250}
+                , {field: 'remark', title: '备注', width: 350}
+                , {field: 'sum', title: '金额', width: 150}
+            ]]
+            , data: [{
+                "time": "2018-0609:215454545"
+                , "remark": "XXXXXXXXXXXXXXX"
+                , "sum": "-2555"
+            },
+                {
+                    "time": "2018-0609:215454545"
+                    , "remark": "XXXXXXXXXXXXXXX"
+                    , "sum": "-2555"
+                },
+                {
+                    "time": "2018-0609:215454545"
+                    , "remark": "XXXXXXXXXXXXXXX"
+                    , "sum": "-2555"
+                }]
+            , page: true //是否显示分页
+            , limit: 10 //每页默认显示的数量
+        });
+
+        table.render({
+            elem: '#withdrawDepositList_tab'
+            , cols: [[ //标题栏
+                {field: 'time', title: '时间', width: 200}
+                , {field: 'remark', title: '备注', width: 280}
+                , {field: 'sum', title: '金额', width: 180}
+                , {
+                    field: 'state', title: '状态', width: 80, templet: function (d) {
+                        if (d.state == '成功') {
+                            return '<span style="color: #5FCC29;">' + d.state + '</span>'
+                        }
+                        else if (d.state == '提现中') {
+                            return '<span style="color: #D58F0A;">' + d.state + '</span>'
+                        }
+
+                        return '<span style="color: red;">' + d.state + '</span>'
+                    }
+                }
+            ]]
+            , data: [{
+                "time": "2018-0609:215454545"
+                , "remark": "XXXXXXXXXXXXXXX"
+                , "sum": "-2555"
+                , "state": "提现中"
+            },
+                {
+                    "time": "2018-0609:215454545"
+                    , "remark": "XXXXXXXXXXXXXXX"
+                    , "sum": "-2555"
+                    , "state": "成功"
+                },
+                {
+                    "time": "2018-0609:215454545"
+                    , "remark": "XXXXXXXXXXXXXXX"
+                    , "sum": "-2555"
+                    , "state": "失败"
+                }]
+            , page: true //是否显示分页
+            , limit: 10 //每页默认显示的数量
+        });
+
+    });
+
+</script>
+
+
+<script>
+    layui.use('layer', function(){ //独立版的layer无需执行这一句
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+        //触发事件
+        var active = {
+            notice: function(){
+                //示范一个公告层
+                layer.open({
+                    type: 1
+                    ,title: false //不显示标题栏
+                    ,closeBtn: false
+                    ,area: '400px;'
+                    ,shade: 0.8
+                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    ,shadeClose:true
+                    ,btnAlign: 'c'
+                    ,moveType: 1 //拖拽模式，0或者1
+                    ,content: '<div class="dialog_share"></div>'
+                    ,success: function(layero){
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.find('.layui-layer-btn0').attr({
+                            href: 'http://www.layui.com/'
+                            ,target: '_blank'
+                        });
+                    }
+                });
+            }
+
+        };
+
+        $('#haibao').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+
+    });
+</script>
+
+</body>
+</html>
